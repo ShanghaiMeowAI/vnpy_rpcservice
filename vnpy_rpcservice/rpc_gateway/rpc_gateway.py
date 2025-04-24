@@ -38,7 +38,7 @@ class RpcGateway(BaseGateway):
 
         self.symbol_gateway_map: dict[str, str] = {}
 
-        self.client: "RpcClient" = RpcClient()
+        self.client: RpcClient = RpcClient()
         self.client.callback = self.client_callback
 
     def connect(self, setting: dict) -> None:
@@ -140,7 +140,7 @@ class RpcGateway(BaseGateway):
         if hasattr(data, "gateway_name"):
             data.gateway_name = self.gateway_name
 
-        if isinstance(data, (PositionData, AccountData, OrderData, TradeData)):
+        if isinstance(data, (PositionData | AccountData | OrderData | TradeData)):
             data.__post_init__()
 
         self.event_engine.put(event)

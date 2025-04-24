@@ -1,5 +1,4 @@
 import traceback
-from typing import Optional
 
 from vnpy.event import Event, EventEngine
 from vnpy.rpc import RpcServer
@@ -27,7 +26,7 @@ class RpcEngine(BaseEngine):
         self.rep_address: str = "tcp://*:2014"
         self.pub_address: str = "tcp://*:4102"
 
-        self.server: Optional[RpcServer] = None
+        self.server: RpcServer | None = None
 
         self.init_server()
         self.load_setting()

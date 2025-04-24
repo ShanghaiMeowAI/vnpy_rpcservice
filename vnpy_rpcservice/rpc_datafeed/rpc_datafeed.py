@@ -1,4 +1,4 @@
-from typing import Callable
+from collections.abc import Callable
 
 from vnpy.rpc import RpcClient, RpcServer
 from vnpy.event import Event
