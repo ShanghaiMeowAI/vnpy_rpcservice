@@ -21,8 +21,6 @@
 # SOFTWARE.
 
 
-import importlib_metadata
-
 from .rpc_gateway import RpcGateway
 from .rpc_service import RpcServiceApp
 
@@ -31,7 +29,13 @@ from .rpc_datafeed import (
     DatafeedServer
 )
 
-try:
-    __version__ = importlib_metadata.version("vnpy_rpcservice")
-except importlib_metadata.PackageNotFoundError:
-    __version__ = "dev"
+
+__all__ = [
+    "RpcGateway",
+    "RpcServiceApp",
+    "Datafeed",
+    "DatafeedServer",
+]
+
+
+__version__ = "1.1.0"
