@@ -1,14 +1,14 @@
 from vnpy.event import EventEngine, Event
 from vnpy.trader.engine import MainEngine
 from vnpy.trader.object import LogData
-from vnpy.trader.ui import QtWidgets, QtCore
+from PySide6 import QtWidgets, QtCore
 
 from ..engine import APP_NAME, EVENT_RPC_LOG, RpcEngine
 
 
 class RpcManager(QtWidgets.QWidget):
     """"""
-    signal_log: QtCore.pyqtSignal = QtCore.pyqtSignal(Event)
+    signal_log: QtCore.Signal = QtCore.Signal(Event)
 
     def __init__(self, main_engine: MainEngine, event_engine: EventEngine) -> None:
         """构造函数"""
