@@ -1,7 +1,7 @@
 from vnpy.event import Event
 from vnpy.rpc import RpcClient
 from vnpy.trader.gateway import BaseGateway
-from vnpy.trader.event import EventEngine
+from vnpy.event import EventEngine
 from vnpy.trader.object import (
     SubscribeRequest,
     HistoryRequest,
