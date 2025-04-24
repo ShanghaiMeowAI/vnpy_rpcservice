@@ -26,7 +26,7 @@ class RpcEngine(BaseEngine):
         self.rep_address: str = "tcp://*:2014"
         self.pub_address: str = "tcp://*:4102"
 
-        self.server: RpcServer | None = None
+        self.server: RpcServer
 
         self.init_server()
         self.load_setting()

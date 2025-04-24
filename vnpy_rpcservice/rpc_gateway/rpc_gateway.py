@@ -1,6 +1,7 @@
 from vnpy.event import Event
 from vnpy.rpc import RpcClient
 from vnpy.trader.gateway import BaseGateway
+from vnpy.trader.event import EventEngine
 from vnpy.trader.object import (
     SubscribeRequest,
     HistoryRequest,
@@ -32,7 +33,7 @@ class RpcGateway(BaseGateway):
 
     exchanges: list[Exchange] = list(Exchange)
 
-    def __init__(self, event_engine, gateway_name: str) -> None:
+    def __init__(self, event_engine: EventEngine, gateway_name: str) -> None:
         """构造函数"""
         super().__init__(event_engine, gateway_name)
 
@@ -85,7 +86,8 @@ class RpcGateway(BaseGateway):
     def query_history(self, req: HistoryRequest) -> list[BarData]:
         """查询历史数据"""
         gateway_name: str = self.symbol_gateway_map.get(req.vt_symbol, "")
-        return self.client.query_history(req, gateway_name)
+        data: list[BarData] = self.client.query_history(req, gateway_name)
+        return data
 
     def query_all(self) -> None:
         """查询基础信息"""
