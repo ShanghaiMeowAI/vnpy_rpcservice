@@ -8,7 +8,7 @@ from ..engine import APP_NAME, EVENT_RPC_LOG, RpcEngine
 
 class RpcManager(QtWidgets.QWidget):
     """"""
-    signal_log: QtCore.pyqtSignal = QtCore.pyqtSignal(Event)
+    signal_log: QtCore.Signal = QtCore.Signal(Event)
 
     def __init__(self, main_engine: MainEngine, event_engine: EventEngine) -> None:
         """构造函数"""
