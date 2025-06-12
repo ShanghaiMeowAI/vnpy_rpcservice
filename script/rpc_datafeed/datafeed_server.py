@@ -6,7 +6,7 @@ REP_ADDRESS = "tcp://*:66001"
 PUB_ADDRESS = "tcp://*:66002"
 
 
-def main():
+def main() -> None:
     """"""
     event_engine = EventEngine()
     event_engine.start()

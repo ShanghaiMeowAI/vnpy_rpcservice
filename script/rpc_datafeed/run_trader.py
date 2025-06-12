@@ -14,7 +14,7 @@ SETTINGS["datafeed.username"] = "tcp://localhost:66001"
 SETTINGS["datafeed.password"] = "tcp://localhost:66002"
 
 
-def main():
+def main() -> None:
     """Start VeighNa Trader"""
     qapp = create_qapp()
 
