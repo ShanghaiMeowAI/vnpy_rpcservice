@@ -17,6 +17,7 @@ from vnpy.trader.object import (
     OrderData,
     TradeData
 )
+from typing import Union
 
 
 class RpcGateway(BaseGateway):
@@ -142,7 +143,7 @@ class RpcGateway(BaseGateway):
         if hasattr(data, "gateway_name"):
             data.gateway_name = self.gateway_name
 
-        if isinstance(data, (PositionData | AccountData | OrderData | TradeData)):
+        if isinstance(data, (PositionData, AccountData, OrderData, TradeData)):
             data.__post_init__()
 
         self.event_engine.put(event)

@@ -19,9 +19,9 @@ classifiers = [
     "Natural Language :: Chinese (Simplified)",
     "Typing :: Typed",
 ]
-requires-python = ">=3.10"
+requires-python = ">=3.9"
 dependencies = [
-    "vnpy>=4.0.0",
+    "vnpy>=3.9.0",
 ]
 keywords = ["quant", "quantitative", "investment", "trading", "algotrading"]
 

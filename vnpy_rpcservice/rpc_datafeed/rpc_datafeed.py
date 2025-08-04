@@ -8,7 +8,7 @@ from vnpy.trader.engine import EventEngine
 from vnpy.trader.event import EVENT_TIMER
 from vnpy.trader.object import HistoryRequest, BarData, TickData
 from vnpy.trader.datafeed import get_datafeed
-
+from typing import Union, Optional, List
 
 class RpcDatafeed(BaseDatafeed):
     """RPC数据服务"""
@@ -99,7 +99,7 @@ class DatafeedServer(RpcServer):
         if self._active:
             self.publish(EVENT_TIMER, None)
 
-    def query_bar_history(self, req: HistoryRequest, output: Callable = print) -> list[BarData] | str:
+    def query_bar_history(self, req: HistoryRequest, output: Callable = print) -> Union[list[BarData], str]:
         """查询K线数据"""
         logs: list = []
         bars: list = self.datafeed.query_bar_history(req, logs.append)
@@ -109,7 +109,7 @@ class DatafeedServer(RpcServer):
         else:
             return bars
 
-    def query_tick_history(self, req: HistoryRequest, output: Callable = print) -> list[TickData] | str:
+    def query_tick_history(self, req: HistoryRequest, output: Callable = print) -> Union[list[TickData], str]:
         """查询Tick数据"""
         logs: list = []
         ticks: list = self.datafeed.query_tick_history(req, logs.append)
